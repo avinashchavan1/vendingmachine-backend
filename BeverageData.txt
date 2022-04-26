@@ -1,0 +1,19 @@
+{
+    "beverageName":"Black Coffee",
+    "ingredients":["water","coffee","sugar"]
+}
+
+{
+    "beverageName":"Coffee With Milk",
+    "ingredients":["water","coffee","sugar","milk"]
+}
+
+{
+    "beverageName":"Sugarless Black Coffee",
+    "ingredients":["water","coffee"]
+}
+
+{
+    "beverageName":"Sugarless Coffee With Milk",
+    "ingredients":["water","coffee","milk"]
+}

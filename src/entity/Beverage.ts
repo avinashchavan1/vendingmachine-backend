@@ -4,18 +4,13 @@ import {
   Column,
   ManyToMany,
   JoinTable,
+  PrimaryColumn,
 } from "typeorm";
 import { Ingredient } from "./Ingredient";
 @Entity()
 export class Beverage {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
+  @PrimaryColumn()
   name: string;
-
-  @Column()
-  availableQuantity: number;
 
   @ManyToMany(() => Ingredient, (ingredient) => ingredient.beverages) // note: we will create author property in the Photo class below
   @JoinTable()
