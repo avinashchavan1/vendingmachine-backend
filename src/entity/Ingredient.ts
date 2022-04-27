@@ -1,12 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from "typeorm";
+import { Entity, Column, ManyToMany, PrimaryColumn } from "typeorm";
 import { Beverage } from "./Beverage";
 
 @Entity()
 export class Ingredient {
-  @PrimaryGeneratedColumn()
-  id: number;
-
-  @Column()
+  @PrimaryColumn()
   name: string;
 
   @Column()

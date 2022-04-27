@@ -33,7 +33,14 @@ router.post(
         console.log(currentIngredient);
       }
     }
-    res.json(ingredients).status(201);
+    const allIngredients = [];
+    for (const element in ingredients) {
+      const currentIngredient = await ingredientRepository.findOneBy({
+        name: element,
+      });
+      allIngredients.push(currentIngredient);
+    }
+    res.json(allIngredients).status(201);
   }
 );
 
@@ -66,7 +73,7 @@ router.post(
     }
     const beverage = new Beverage();
     beverage.name = beverageName;
-    beverage.ingredients = beverageIngredients;
+    beverage.ingredients = ingredientList;
     const beverageRepository = AppDataSource.getRepository(Beverage);
     await beverageRepository.save(beverage);
     console.log(beverage);
