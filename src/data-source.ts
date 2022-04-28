@@ -1,6 +1,5 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
-import { User } from "./entity/User";
 import { Ingredient } from "./entity/Ingredient";
 import { Beverage } from "./entity/Beverage";
 
