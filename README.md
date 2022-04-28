@@ -83,7 +83,7 @@ body:
 - Also add all the connection details for database in `data-source.ts` file.
 
 
-Steps to run this project:
+## Steps to run this project:
 
 1. Run `npm i` command
 2. Setup database settings inside `data-source.ts` file
