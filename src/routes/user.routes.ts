@@ -3,6 +3,17 @@ import { AppDataSource } from "../data-source";
 import { Beverage } from "../entity/Beverage";
 import { Ingredient } from "../entity/Ingredient";
 const router = express.Router();
+router.get(
+  "/status",
+  async (req: express.Request, res: express.Response, next: any) => {
+    const ingredientRepository = AppDataSource.getRepository(Ingredient);
+    const result = await ingredientRepository
+      .createQueryBuilder("ingredient")
+      .getMany();
+    res.status(200).json(result);
+  }
+);
+
 router.post(
   "/dispense",
   async (req: express.Request, res: express.Response, next: any) => {
@@ -42,10 +53,14 @@ router.post(
       }
     }
     // Reduce ingredient quantities
-    for (const element of ingredientList) {
-      element.availableQuantity = element.availableQuantity - 1;
-      await ingredientRepository.save(element);
+    for (const element of beverageIngredients) {
+      const currentIngredient = await ingredientRepository.findOneBy({
+        name: element.name,
+      });
+      currentIngredient.availableQuantity -= element.quantity;
+      await ingredientRepository.save(currentIngredient);
     }
+
     await beverageRepository.save(beverage);
     console.log(beverage);
     res

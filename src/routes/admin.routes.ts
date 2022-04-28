@@ -80,4 +80,20 @@ router.post(
     return res.status(201).json(beverage);
   }
 );
+
+router.get(
+  "/reset",
+  async (req: express.Request, res: express.Response, next: any) => {
+    const ingredientRepository = AppDataSource.getRepository(Ingredient);
+    const result = await ingredientRepository
+      .createQueryBuilder("ingredient")
+      .getMany();
+
+    for (const currentIngredient of result) {
+      currentIngredient.availableQuantity = 0;
+      await ingredientRepository.save(currentIngredient);
+    }
+    res.status(200).json(result);
+  }
+);
 export default router;
