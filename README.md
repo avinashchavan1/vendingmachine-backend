@@ -1,6 +1,6 @@
 # Vending Machine - Backend
 
-The vending machine backend is build using REST Framework. The backend can have any ingredients and beverages. It also stops accepting the orders if the ingredint are not sufficient to dispense the beverage.
+The vending machine backend is built using REST Framework. The backend can have any ingredients and beverages. It also stops accepting the orders if the ingredients are not sufficient to dispense the beverage.
 
 ## Technologies used
 - NodeJs
@@ -24,7 +24,7 @@ The vending machine backend is build using REST Framework. The backend can have 
 ## Endpoints
 ### Admin
 -  #### /admin/topup  - POST
-This tops up the ingredints if exits or else it adds them 
+This tops up the ingredints if exits or else it adds the 
 ```
 body:
 {
@@ -36,7 +36,7 @@ body:
 ```
 
 -  #### /admin/add-beverage   - POST
-This adds the beverage if does not exits or else it updates the existing bevearge if the new one is changed
+This adds the beverage if does not exits or else it updates the existing bevearge if the current is changed
 ```
 body:
 {
@@ -51,10 +51,10 @@ This resets all the ingredients quantity to zero
 
 ### User
 -  #### /user/status   - GET
-This gets the qunatity of all the ingredients to display
+This gets the quantity of all the Ingredients to display
 
 -  #### /user/dispense   - POST
-This endpoint will dispense the beverage if there are sufficent ingredients or else it will give you a error message for why the beverage is not dispened. This is also notify the admin if the ingrdeints are not suffictient for dispensing
+This endpoint will dispense the beverage if there are sufficent ingredients or else it will give you a error message for why the beverage is not dispened. This will also notify the admin if the ingrdeints are not suffictient for dispensing.
 ```
 body:
 {
@@ -76,7 +76,7 @@ body:
 }
 ```
 
-## Preqeuiste to run the project
+## Prerequisite to run the project
 - Have Nodejs installed 
 - Have mysql database installed
 - Have a database name `vendingapp`
